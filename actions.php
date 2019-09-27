@@ -24,7 +24,6 @@ resumo_criptografico: ' . sha1($decifrado);
         break;
 
     case "send":
-        
         echo var_dump($_FILES);
         
         $rs = '{"code":"400","error":"invalid","message":"Invalid content. Body must contain a file with the answer"}';
