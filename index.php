@@ -14,12 +14,12 @@ and open the template in the editor.
         <script type="text/javascript" src="script.js" ></script>
     </head>
     <body>
-
-        <form id="form" method="multipart/form-data">
-            <textarea id="rsData" name="rsData" rows="7" style="width: 550px"></textarea>
-            <br>
-            <textarea id="rsDataconvert" name="rsDataconvert" rows="5" style="width: 580px"></textarea>
-            <br>
+        <textarea id="rsData" name="rsData" rows="7" style="width: 550px"></textarea>
+        <br>
+        <textarea id="rsDataconvert" name="rsDataconvert" rows="5" style="width: 580px"></textarea>
+        <br>
+        
+        <form id="form" method="multipart/form-data" enctype="multipart/form-data">
             <input type="file" name="answer" id="answer" />
             <br>
             <br>

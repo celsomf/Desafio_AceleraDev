@@ -10,7 +10,8 @@ switch ($getpost['action']) {
         $msg = json_decode($getpost['rsData'], true);
         $decifrado = translateMegasse($msg["cifrado"], $msg['numero_casas']);
 
-        $msg['decifrado'] = $decifrado;
+        $msg['cifrado'] = strtolower($msg['cifrado']);
+        $msg['decifrado'] = strtolower($decifrado);
         $msg['resumo_criptografico'] = sha1($decifrado);
 
         $myfile = fopen("answer.json", "w") or die("Unable to open file!");
@@ -18,15 +19,15 @@ switch ($getpost['action']) {
         fclose($myfile);
 
         echo '
-            Parabens deu certo!O <b>arquivo criado</b> com sucesso! |decifrado: ' . $decifrado . '
+            Parabens deu certo!O <b>arquivo criado</b> com sucesso! | ' . $msg['decifrado'] . '
                 
 resumo_criptografico: ' . sha1($decifrado);
         break;
 
     case "send":
         echo var_dump($_FILES);
-        
-        $rs = '{"code":"400","error":"invalid","message":"Invalid content. Body must contain a file with the answer"}';
+
+//        $rs = '{"code":"400","error":"invalid","message":"Invalid content. Body must contain a file with the answer"}';
         echo json_encode($rs);
         break;
 }
